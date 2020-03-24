@@ -6,11 +6,22 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_webview.*
+import android.util.Base64
 
 class WebViewActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstance: Bundle?) {
         super.onCreate(savedInstance)
+
+        val token=intent.getStringExtra("token")
+        val product=intent.getStringExtra("product")
+        val demoMode=intent.getBooleanExtra("demoMode", false)
+        val color=intent.getStringExtra("color")
+
+        val json = """{"token":"$token", "demoMode":$demoMode, "color":"$color", "inSdk":true}""".toByteArray()
+
+        val payload = Base64.encodeToString(json, Base64.DEFAULT)
+
 
         setContentView(R.layout.activity_webview)
         webview_transact.settings.javaScriptEnabled = true
@@ -25,9 +36,8 @@ class WebViewActivity: AppCompatActivity() {
             }
         }
 
-//        webview_transact.loadUrl("https://transact-staging.atomicfi.com/xdeposit/start/eyJwcm9kdWN0IjoieGRlcG9zaXQiLCJkZW1vTW9kZSI6InRydWUiLCJpblNkayI6InRydWUifQ==")
-        webview_transact.loadUrl("http://192.168.0.24:4545/xdeposit/start/eyJwcm9kdWN0IjoieGRlcG9zaXQiLCJkZW1vTW9kZSI6InRydWUiLCJpblNkayI6InRydWUifQ==")
-    }
+        webview_transact.loadUrl("http://192.168.0.24:4545/$product/start/$payload")
 
+    }
 
 }

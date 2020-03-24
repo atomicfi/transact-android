@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2819AC"
+    android:background="#000023"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     tools:context=".MainActivity">
@@ -31,7 +31,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Launch Transact"
-        android:textColor="#4B39EF"
+        android:textColor="#000023"
         android:onClick="launchWebView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
