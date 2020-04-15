@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     fun launchWebView(view: View) {
         val launch = Intent(applicationContext, WebViewActivity::class.java)
         launch.putExtra("token", "")
-        launch.putExtra("product", "xdeposit")
+        launch.putExtra("product", "deposit")
         launch.putExtra("demoMode",  true)
         launch.putExtra("color",  "#4B39EF")
         startActivity(launch)
