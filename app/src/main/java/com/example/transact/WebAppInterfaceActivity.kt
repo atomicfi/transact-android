@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import android.webkit.JavascriptInterface
 import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.activity_webview.*
@@ -19,7 +20,7 @@ class WebAppInterface(private val mContext: Context) {
         val rawPayload = Base64.decode(data.toByteArray(), Base64.DEFAULT)
         val response = JSONObject(String(rawPayload))
         val action = response.getString("event")
-        val url = response.getString("url")
+        val url = response.getString("payload")
 
         when(action) {
             "atomic-transact-close" -> closeTransact()
