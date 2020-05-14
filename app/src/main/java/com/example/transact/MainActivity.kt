@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         launch.putExtra("product", "deposit")
         launch.putExtra("demoMode",  true)
         launch.putExtra("color",  "#4B39EF")
+        launch.putExtra("inSdk", true)
         startActivity(launch)
     }
 }
