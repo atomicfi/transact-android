@@ -37,7 +37,7 @@ class WebViewActivity: AppCompatActivity() {
             }
         }
 
-        webview_transact.loadUrl("https://transact.atomicfi.com/$product/start/$payload")
+        webview_transact.loadUrl("https://transact.atomicfi.com/initialize/$payload")
 
     }
 
