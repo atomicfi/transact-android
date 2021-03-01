@@ -19,7 +19,7 @@ class WebViewActivity: AppCompatActivity() {
         val color=intent.getStringExtra("color")
         val inSdk=intent.getBooleanExtra("inSdk", true)
 
-        val json = """{"token":"$token", "demoMode":$demoMode, "color":"$color", "inSdk":"$inSdk"}""".toByteArray()
+        val json = """{"token":"$token", "demoMode":$demoMode, "theme":{"brandColor":"$color"}, "inSdk":"$inSdk"}""".toByteArray()
 
         val payload = Base64.encodeToString(json, Base64.DEFAULT)
 
